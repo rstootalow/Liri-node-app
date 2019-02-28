@@ -27,6 +27,7 @@ switch(liriRequest) {
         'movies' + '\n' +
         'artists' + '\n' +
         'bands' + '\n');
+        break;
 }
 
 // create functions to the respective apis
