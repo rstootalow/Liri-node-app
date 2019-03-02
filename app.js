@@ -36,8 +36,14 @@ switch(liriRequest) {
 // OMDB function
 function movieRequest() {
    // user input is worked in to the axios api call
-   var movieURL = axios.get('http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + userInput).then(function(response){
-       console.log(response.data);
+   var movieURL = axios.get('http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + userInput + '').then(function(response){
+       console.log(response.data.Year)
+       console.log(response.data.imdbRating);
+       console.log(response.data.tomatoRating);
+       console.log(response.data.Country);
+       console.log(response.data.Language);
+       console.log(response.data.Plot);
+       console.log(response.data.Actors);
    })
 
    // response is then populated back to the console
