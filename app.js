@@ -47,25 +47,50 @@ switch(liriRequest) {
 function movieRequest() {
    // user input is worked in to the axios api call
    var movieURL = ('http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + userInput);
-
-    axios.get(movieURL)
-        .then(function(response) {
-        console.log(response.data.Year)
-        console.log(response.data.imdbRating);
-        console.log(response.data.tomatoRating);
-        console.log(response.data.Country);
-        console.log(response.data.Language);
-        console.log(response.data.Plot);
-        console.log(response.data.Actors);
-        }
-    )}
+    if (userInput) {
+        axios.get(movieURL)
+         .then(function(response) {
+            console.log(response.data.Year)
+            console.log(response.data.imdbRating);
+            console.log(response.data.tomatoRating);
+            console.log(response.data.Country);
+            console.log(response.data.Language);
+            console.log(response.data.Plot);
+            console.log(response.data.Actors);
+        });
+    } else {
+        userInput = 'mr nobody'
+    }
+}
+ 
 
 function spotifyRequest() {
-    
+    if (userInput === null) {
+        userInput = "The Sign";
+    }
+    spotify
+        .search({type: 'track', query: userInput})
+            .then(function(response) {
+                console.log("  ");
+                console.log("****** SEARCHING FOR " + userInput + "*******" );
+                console.log("  ");
+                // limit search results to 3 songs
+                for (var i = 0; i < 3; i++) {
+                    var results = 
+                    "********************" +
+                    "\nArtists: " + response.tracks.items[i].artists[0].name +
+                    "\nSong Name: " + response.tracks.items[i].name +
+                    "\nAlbum Name: " + response.tracks.items[i].album.name +
+                    "\nLink To Preview: " + response.tracks.items[i].preview_url;
+
+                    console.log(results);
+                }
+            })
 }
 
 function concertRequest() {
     var concertURL = ('https://rest.bandsintown.com/artists/' + userInput + '/events?app_id=codingbootcamp');
+    //add logic to come up with error statement if no concerts are availeable.
     console.log("******** " + "You are searching for: " + userInput +  " ********")
     //axios get call
     axios.get(concertURL)
@@ -74,14 +99,19 @@ function concertRequest() {
             console.log("This concert is being held at: " + concertData[0].venue.name);
             console.log("The venue is located in: " + (concertData[0].venue.city) + ", " +  concertData[0].venue.region);
             console.log("This event is happening on " + concertData[0].datetime);
-
-            
-        
         })
 }
 
-
-function doWhatItSays() {
-
-}
+ function doWhatItSays() {
+    fs.readFile("random.txt", "utf8", function(error, data){
+        if (error) {
+            return console.log(error);
+        }
+        var dataArr = data.split(",");
+            if (dataArr === 'spotify-this-song') {
+                userInput = dataArr + 1;
+                spotifyRequest();
+             }
+    })
+ }
 
