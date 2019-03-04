@@ -45,34 +45,46 @@ switch(liriRequest) {
 
 // OMDB function
 function movieRequest() {
+    if (!userInput) {
+        userInput = 'Mr nobody';
+    }
    // user input is worked in to the axios api call
    var movieURL = ('http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + userInput);
-    if (userInput) {
-        axios.get(movieURL)
+    
+    axios.get(movieURL)
          .then(function(response) {
-            console.log(response.data.Year)
-            console.log(response.data.imdbRating);
-            console.log(response.data.tomatoRating);
-            console.log(response.data.Country);
-            console.log(response.data.Language);
-            console.log(response.data.Plot);
-            console.log(response.data.Actors);
+            console.log("\n");
+            console.log("********** SEARCHING FOR " + userInput + " **********");
+            console.log("\n");
+            // limit search to 3 movies in case of overlap
+                var results = 
+                "********************" +
+                "\n" +
+                "\n - Title: " + response.data.Title +
+                "\n - Year Released: " + response.data.Year +
+                "\n - IMDB Rating: " + response.data.imdbRating +
+                "\n - Rotten Tomatoes Score: " + response.data.Ratings[1].Value +
+                "\n - Country of Origin: " + response.data.Country +
+                "\n - Language: " + response.data.Language +
+                "\n - Plot: " + response.data.Plot +
+                "\n - Cast Members: " + response.data.Actors + 
+                "\n" + 
+                "\n**********************" +
+                "\n";
+                console.log(results);
         });
-    } else {
-        userInput = 'mr nobody'
-    }
 }
  
 
 function spotifyRequest() {
-    if (userInput === null) {
+    if (!userInput) {
         userInput = "The Sign";
     }
     spotify
         .search({type: 'track', query: userInput})
             .then(function(response) {
                 console.log("  ");
-                console.log("****** SEARCHING FOR " + userInput + "*******" );
+                console.log("********** SEARCHING FOR " + userInput + " *********" );
                 console.log("  ");
                 // limit search results to 3 songs
                 for (var i = 0; i < 3; i++) {
@@ -96,6 +108,7 @@ function concertRequest() {
     axios.get(concertURL)
         .then(function(response) {
             var concertData = response.data;
+            // var convertedDate = moment("MM/DD/YYYY");
             console.log("This concert is being held at: " + concertData[0].venue.name);
             console.log("The venue is located in: " + (concertData[0].venue.city) + ", " +  concertData[0].venue.region);
             console.log("This event is happening on " + concertData[0].datetime);
@@ -106,12 +119,18 @@ function concertRequest() {
     fs.readFile("random.txt", "utf8", function(error, data){
         if (error) {
             return console.log(error);
-        }
-        var dataArr = data.split(",");
-            if (dataArr === 'spotify-this-song') {
-                userInput = dataArr + 1;
+        } else {
+            //split read me file in to an array
+            var dataArr = data.split(",");
+            // console.log(dataArr);
+            // if first index of array is spotify command
+            if (dataArr[0] === 'spotify-this-song') {
+                // assign second index to userInput
+                userInput = dataArr[1];
+                //then run spotify function
                 spotifyRequest();
              }
+        }
+        
     })
  }
-
