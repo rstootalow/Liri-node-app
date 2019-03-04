@@ -34,8 +34,30 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
 
 * <code>node app.js</code>
    <p>By running this command, the application will start with a set of instructions letting the user know how to navigate and perform tasks in the application</p>
-![Application Start Command](../images/liri-app-start)
+![Application Start Command](images/liri-start-command)
 
+* <code>node app.js movie-this {title given}</code>
+![Movie Search with Title](images/movie-this-with-title)
+
+* <code>ode app.js movie-this {no title given}</code>
+      <p>Running this command will automatically default the movie search to the movie "Mr. Nobody"</p>
+![Movie Search with No Title](imaes/movie-this-no-title)
+
+* <code>node app.js spotify-this-song {song title given}</code>
+      <p>Running this command will send a request to the Spotify API which will return no more than 3 results in case there are multiple matches of that song </p>
+![Spotify Song Search with Song Title](images/spotifit-this-song-with-title)
+
+* <code>node app.js spotify-this-song {no song title given}</code>
+      <p>Running this command with no title given with send a request to Spotify with a default song title value of the song "The Sign"</p>
+![Spotify Song Search with No Song Title](imaes/spotify-this-with-no-title)
+
+* <code>node app.js concert-this {Name of Artist}</code>
+      <p>Similar to the other requests, this one will return the response from the Bands In Town API with the name of the artist and any past, present, or future dates for upcoming concerts or shows</p>
+![Concert Search by Artist Name](images/concert-this-with-title)
+
+* <code>node app.js do-what-it-says</code>
+      <p>This command will run a function that will send a request to Spotify and search for the song "I Want It That Way" and return no more than three responses with songs that have that title.</p>
+![Do What It Says Command](images/do-what-it-says)
 
 
 
