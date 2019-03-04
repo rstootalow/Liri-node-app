@@ -24,7 +24,17 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
    
 ## APIs Used
 
-#### [OMDB](http://www.omdbapi.com)
+#### [OMDB](http://www.omdbapi.com): A RESTful API for movie databases. In the Liri application, users are able to request a number of different categories for any movie they search for. 
+
+#### [Bands In Town](http://www.artists.bandsintown.com/bandsintown-api): Another RESTful API. In the Liri application, users can leverage this API to find past, present, or upcoming concert dates of any artist they search for. 
+
+#### [Spotify](https://developer.spotify.com/documentation/web-api/): The user can hit various API endpoints to get any number of values from artists, albums, and songs. For the specific use of this application, the user will be searching by songs. 
+
+## Application Commands and Screenshots
+
+* <code>node app.js</code>
+   <p>By running this command, the application will start with a set of instructions letting the user know how to navigate and perform tasks in the application</p>
+![Application Start Command](images/liri-app-start)
 
 
 
