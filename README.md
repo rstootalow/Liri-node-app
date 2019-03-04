@@ -7,7 +7,7 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
 ## NPM Packages
 
 1. [Axios](https://www.npmjs.com/package/axios): This package was installed to be able to leverage various APIs by making http requests directly from Node.js. 
-  1. <p><code>npm install axios</code></p>
+   <p><code>npm install axios</code></p>
 
 2. [Dotenv](https://www.npmjs.com/package/dotenv): This package was used to store variables of api keys and passwords that I would like to keep private as I publish my project on GitHub pages, while still having access to the APIs I used in this project.  
 
