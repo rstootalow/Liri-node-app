@@ -2,15 +2,19 @@
 This a Language Interpretation and Recognition Interface application using Node.js. 
 
 # Overview
-Since this is a CLI(Command Line) application, there will be no reference or links to any external html pages or cascading stylesheets. The application itself makes use of a few different Node packages via [NPMjs](https://www.npmjs.com/). The full list of installed packages can be found [here](https://github.com/rstootalow/Liri-node-app/blob/master/package.json)
+Since this is a CLI(Command Line) application, there will be no reference or links to any external html pages or cascading stylesheets. The application itself makes use of a few different Node packages via [NPMjs](https://www.npmjs.com/). The full list of installed packages can be found [here](https://github.com/rstootalow/Liri-node-app/blob/master/package.json). A more granular look in to those npm packages can be found below. 
 
-##
+## NPM Packages
 
-1. LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies.
+1. [Axios](https://www.npmjs.com/package/axios): This package was installed to be able to leverage various APIs by making http requests directly from Node.js. 
+  1. <p><code>npm install axios</code></p>
 
-2. Make a new GitHub repository called liri-node-app and clone it to your computer.
+2. [Dotenv](https://www.npmjs.com/package/dotenv): This package was used to store variables of api keys and passwords that I would like to keep private as I publish my project on GitHub pages, while still having access to the APIs I used in this project.  
 
-3. To retrieve the data that will power this app, you'll need to send requests using the `axios` package to the Bands in Town, Spotify and OMDB APIs. You'll find these Node packages crucial for your assignment.
+3. [Moment](https://www.npmjs.com/package/moment): This package was used to convert dates and times from Axios responses in to more readable formats.
+
+4. [Node-Spotify-Api](https://www.npmjs.com/package/node-spotify-api): A library of the various API calls users can make to the Spotify API.
+
 
    * [Node-Spotify-API](https://www.npmjs.com/package/node-spotify-api)
 
@@ -22,9 +26,8 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
 
    * [DotEnv](https://www.npmjs.com/package/dotenv)
    
-## Submission Guide
+## APIs Used
 
-Create and use a standard GitHub repository. As this is a CLI App, it cannot be deployed to GitHub pages or Heroku. This time you'll need to include screenshots, a GIF, and/or a video showing us that you have the app working with no bugs. You can include these screenshots/GIFs or a link to a video in a `README.md` file.
 
 * Include screenshots (or a GIF/Video) of the typical user flow of your application. Make sure to include the use of Spotify, Bands in Town, and OMDB.
 
