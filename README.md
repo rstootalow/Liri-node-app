@@ -34,7 +34,7 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
 
 * <code>node app.js</code>
    <p>By running this command, the application will start with a set of instructions letting the user know how to navigate and perform tasks in the application</p>
-![Application Start Command](images/liri-app-start)
+![Application Start Command](../images/liri-app-start)
 
 
 
