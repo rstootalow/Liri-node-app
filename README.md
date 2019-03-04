@@ -6,13 +6,21 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
 
 ## NPM Packages
 
-#### [Axios](https://www.npmjs.com/package/axios): This package was installed to be able to leverage various APIs by making http requests directly from Node.js. <br> <code>npm install axios</code>
+#### [Axios](https://www.npmjs.com/package/axios): This package was installed to be able to leverage various APIs by making http requests directly from Node.js. <br> 
 
-#### [Dotenv](https://www.npmjs.com/package/dotenv): This package was used to store variables of api keys and passwords that I would like to keep private as I publish my project on GitHub pages, while still having access to the APIs I used in this project. <br> <code>npm install dotenv</code>
+<code>npm install axios</code>
 
-#### [Moment](https://www.npmjs.com/package/moment): This package was used to convert dates and times from Axios responses in to more readable formats. <br> <code>npm install moment</code>
+#### [Dotenv](https://www.npmjs.com/package/dotenv): This package was used to store variables of api keys and passwords that I would like to keep private as I publish my project on GitHub pages, while still having access to the APIs I used in this project. <br> 
 
-#### [Node-Spotify-Api](https://www.npmjs.com/package/node-spotify-api): A library of the various API calls users can make to the Spotify API. <br> <code>npm install node-spotify-api</code>
+<code>npm install dotenv</code>
+
+#### [Moment](https://www.npmjs.com/package/moment): This package was used to convert dates and times from Axios responses in to more readable formats. <br> 
+
+<code>npm install moment</code>
+
+#### [Node-Spotify-Api](https://www.npmjs.com/package/node-spotify-api): A library of the various API calls users can make to the Spotify API. <br> 
+
+<code>npm install node-spotify-api</code>
    
 ## APIs Used
 
