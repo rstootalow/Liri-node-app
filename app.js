@@ -1,42 +1,42 @@
-require('dotenv').config();
+require("dotenv").config();
 
 //create variables/constants for app functionality
-const fs = require('fs');
-const keys = require('./keys.js');
-const Spotify = require('node-spotify-api');
+const fs = require("fs");
+const keys = require("./keys.js");
+const Spotify = require("node-spotify-api");
 const spotify = new Spotify(keys.spotify);
 // const bands = new bands(keys.bandsKey);
-const moment = require('moment');
-const axios = require('axios');
-const request = require('request');
+const moment = require("moment");
+const axios = require("axios");
+const request = require("request");
 
 
 var liriRequest = process.argv[2]
 var userInput = process.argv.slice(3).join(" ");
-var omdbKey = 'd6b764ec';
+var omdbKey = "d6b764ec";
 
 
 //switches for liriRequest
 switch(liriRequest) {
-   case 'movie-this':
+   case "movie-this":
        movieRequest();
        break;
-   case 'spotify-this-song':
+   case "spotify-this-song":
        spotifyRequest();
        break;
-   case 'concert-this':
+   case "concert-this":
        concertRequest();
        break;
-    case 'do-what-it-says':
+    case "do-what-it-says":
         doWhatItSays();
         break;
 
    // instructions for entering in information
-   default: console.log('type any of the following commands after node app.js to start the application:' + '\n' +
-       'movie-this' + ' {Enter Movie Name}' + '\n' +
-       'spotify-this-song' + ' {Enter Artist Name}' + '\n' +
-       'concert-this' + ' {Enter Name of Band}' + '\n' +
-       'do-what-it-says' + ' {Leave This Blank}' + '\n'
+   default: console.log("**********" + "INSTRUCTIONS FOR USE" + "**********" + "type any of the following commands after node app.js to start the application: " + "\n" +
+       "movie-this" + " {Enter Movie Name}" + "\n" +
+       "spotify-this-song" + " {Enter Artist Name}" + '\n' +
+       "concert-this" + " {Enter Name of Band}" + "\n" +
+       "do-what-it-says" + " {Leave This Blank}" + "\n"
        );
        break;
 }
@@ -46,10 +46,10 @@ switch(liriRequest) {
 // OMDB function
 function movieRequest() {
     if (!userInput) {
-        userInput = 'Mr nobody';
+        userInput = "Mr nobody";
     }
    // user input is worked in to the axios api call
-   var movieURL = ('http://www.omdbapi.com/?apikey=' + omdbKey + '&t=' + userInput);
+   var movieURL = ("http://www.omdbapi.com/?apikey=" + omdbKey + "&t=" + userInput);
     
     axios.get(movieURL)
          .then(function(response) {
@@ -81,7 +81,7 @@ function spotifyRequest() {
         userInput = "The Sign";
     }
     spotify
-        .search({type: 'track', query: userInput})
+        .search({type: "track", query: userInput})
             .then(function(response) {
                 console.log("  ");
                 console.log("********** SEARCHING FOR " + userInput + " *********" );
@@ -101,7 +101,7 @@ function spotifyRequest() {
 }
 
 function concertRequest() {
-    var concertURL = ('https://rest.bandsintown.com/artists/' + userInput + '/events?app_id=codingbootcamp');
+    var concertURL = ("https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp");
     //add logic to come up with error statement if no concerts are availeable.
     console.log("******** " + "You are searching for: " + userInput +  " ********")
     //axios get call
@@ -124,7 +124,7 @@ function concertRequest() {
             var dataArr = data.split(",");
             // console.log(dataArr);
             // if first index of array is spotify command
-            if (dataArr[0] === 'spotify-this-song') {
+            if (dataArr[0] === "spotify-this-song") {
                 // assign second index to userInput
                 userInput = dataArr[1];
                 //then run spotify function
