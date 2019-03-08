@@ -107,11 +107,14 @@ function concertRequest() {
     //axios get call
     axios.get(concertURL)
         .then(function(response) {
-            var concertData = response.data;
-            // var convertedDate = moment("MM/DD/YYYY");
-            console.log("This concert is being held at: " + concertData[0].venue.name);
-            console.log("The venue is located in: " + (concertData[0].venue.city) + ", " +  concertData[0].venue.region);
-            console.log("This event is happening on " + concertData[0].datetime);
+                var concertData = response.data;
+                const convertedDate = moment(concertData[0].datetime).format("MM/DD/YYYY");
+                // var converted
+                console.log("This concert is being held at: " + concertData[0].venue.name);
+                console.log("The venue is located in: " + (concertData[0].venue.city) + ", " +  concertData[0].venue.region);
+                console.log("This event is happening on " + convertedDate
+                );
+                
         })
 }
 
