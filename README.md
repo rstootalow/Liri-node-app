@@ -39,7 +39,7 @@ Since this is a CLI(Command Line) application, there will be no reference or lin
 * <code>node app.js movie-this {title given}</code>
 ![Movie Search with Title](images/movie-this-with-title.png)
 
-* <code>ode app.js movie-this {no title given}</code>
+* <code>node app.js movie-this {no title given}</code>
       <p>Running this command will automatically default the movie search to the movie "Mr. Nobody"</p>
 ![Movie Search with No Title](images/movie-this-no-title.png)
 
