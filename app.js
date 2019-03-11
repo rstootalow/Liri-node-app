@@ -5,7 +5,6 @@ const fs = require("fs");
 const keys = require("./keys.js");
 const Spotify = require("node-spotify-api");
 const spotify = new Spotify(keys.spotify);
-// const bands = new bands(keys.bandsKey);
 const moment = require("moment");
 const axios = require("axios");
 const request = require("request");
@@ -32,7 +31,7 @@ switch(liriRequest) {
         break;
 
    // instructions for entering in information
-   default: console.log("**********" + "INSTRUCTIONS FOR USE" + "**********" + "type any of the following commands after node app.js to start the application: " + "\n" +
+   default: console.log("********************" + "\nINSTRUCTIONS FOR USE" + "\n********************" + "\nType any of the following commands after node app.js to start the application: " + "\n" +
        "movie-this" + " {Enter Movie Name}" + "\n" +
        "spotify-this-song" + " {Enter Artist Name}" + '\n' +
        "concert-this" + " {Enter Name of Band}" + "\n" +
@@ -109,12 +108,12 @@ function concertRequest() {
         .then(function(response) {
                 var concertData = response.data;
                 const convertedDate = moment(concertData[0].datetime).format("MM/DD/YYYY");
-                // var converted
-                console.log("This concert is being held at: " + concertData[0].venue.name);
-                console.log("The venue is located in: " + (concertData[0].venue.city) + ", " +  concertData[0].venue.region);
-                console.log("This event is happening on " + convertedDate
-                );
-                
+                var results = 
+                console.log("********************" + 
+                "\nThis concert is being held at: " + concertData[0].venue.name +
+                "\nThe venue is located in: " + (concertData[0].venue.city) + ", " +  concertData[0].venue.region +
+                "\nThis event is happening on: " + convertedDate +
+                "\n********************");      
         })
 }
 
